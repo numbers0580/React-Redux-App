@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {SP_ETF, FINANCE_URL, MY_KEY, SYMBOL_LOOKUP, SYMBOL_SUCCESS, SYMBOL_FAILURE} from '../secret/constants';
+import {SP_ETF, FINANCE_URL, MY_KEY, SYMBOL_LOOKUP, SANDP_SUCCESS, TICKER_SUCCESS, SYMBOL_FAILURE} from '../secret/constants';
 
 export const getTicker = () => dispatch => {
     dispatch({type: SYMBOL_LOOKUP})
@@ -8,10 +8,12 @@ export const getTicker = () => dispatch => {
             console.log('API responses:', responses)
             console.log('Data from S&P ETF:', responses[0].data);
             console.log('Data from Netflix:', responses[1].data);
+            dispatch({type: SANDP_SUCCESS, payload: responses[0].data});
+            dispatch({type: TICKER_SUCCESS, payload: responses[1].data});
         }))
         .catch(error => {
             console.log('Error fetching symbols from API');
-            dispatch({type: SYMBOL_FAILURE, payload: 'API response error for S&P ETF and NFLX'})
+            dispatch({type: SYMBOL_FAILURE, payload: 'API response error for S&P ETF and NFLX'});
         })
 
 
