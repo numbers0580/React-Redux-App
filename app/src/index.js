@@ -7,10 +7,11 @@ import * as serviceWorker from './serviceWorker';
 //All the imports just to make the 'store' work. Ugh...
 import {Provider} from 'react-redux';
 import {createStore, applyMiddleware} from 'redux';
-import dataReducer from './reducers/dataReducer';
+//import dataReducer from './reducers/dataReducer';
+import {reducer} from './reducers/cnReducer';
 import thunk from 'redux-thunk';
 
-const store = createStore(dataReducer, applyMiddleware(thunk));
+const store = createStore(reducer, applyMiddleware(thunk));
 
 ReactDOM.render(
   <Provider store={store}>

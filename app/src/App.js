@@ -3,8 +3,10 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import './App.css';
 //import axios from 'axios';
 
-import Header from './components/Header';
-import SearchForm from './components/SearchForm';
+//import Header from './components/Header';
+//import SearchForm from './components/SearchForm';
+
+import JokePage from './components/JokePage';
 
 function App() {
   /*
@@ -43,7 +45,7 @@ function App() {
 
   return (
     <div className="App">
-      <BrowserRouter>
+      {/* <BrowserRouter>
         <Route path ='/'>
           <Header />
         </Route>
@@ -51,7 +53,8 @@ function App() {
           <SearchForm />
         </Route>
         <Route path ='/compare'></Route>
-      </BrowserRouter>
+      </BrowserRouter> */}
+      <JokePage />
     </div>
   );
 }
